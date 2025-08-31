@@ -1,0 +1,39 @@
+{
+  "name": "nikshay-semi-form-fill-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && copyfiles -u 1 src/renderer/*.{html,css,ttf,woff,woff2} dist/",
+    "package-win": "@electron/packager . Nikshay Semi Form Fill Automation --platform=win32 --arch=x64 --icon=assets/icon.ico --overwrite",
+    "start": "electron .",
+    "dev": "tsc && electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.2",
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "@electron/asar": "^4.0.1",
+    "@electron/packager": "^18.4.4",
+    "@types/node": "^24.3.0",
+    "commander": "^14.0.0",
+    "copyfiles": "^2.4.1",
+    "electron": "^37.4.0",
+    "foreground-child": "^3.3.1",
+    "glob": "^11.0.3",
+    "playwright-core": "^1.55.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "undici-types": "^7.15.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  }
+}
