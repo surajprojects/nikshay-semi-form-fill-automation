@@ -40,7 +40,7 @@ nikshay-semi-form-fill-automation/
 
 ## ScreenShots
 
-![Screenshot](nikshay-semi-form-fill-automation-screenshot.png)
+![Screenshot](nikshay-semi-form-fill-automation-app-screenshot.png)
 
 ## Setup & Usage
 
