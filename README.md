@@ -49,6 +49,7 @@ nikshay-semi-form-fill-automation/
 - Install dependencies.
 - Run in development mode,
 - Build desktop app (Windows).
+- Note:- Get the ms-playwright folder after playwright install in local machine.
 
 ## Workflow
 

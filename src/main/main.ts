@@ -1,8 +1,11 @@
-import { app, BrowserWindow, ipcMain, dialog } from "electron";
 import * as path from "path";
+
+process.env.PLAYWRIGHT_BROWSERS_PATH = path.join(process.resourcesPath, "ms-playwright");
+
+import { app, BrowserWindow, ipcMain, dialog } from "electron";
 import run from "../scripts/script";
 import saveLogin from "../scripts/saveLogin";
-import * as url from "url";  // <-- add this
+import * as url from "url";
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -30,9 +33,7 @@ function createWindow() {
             })
         );
     } else {
-        // in dev mode, load localhost (Vite/React/Next server) if you use one
         mainWindow.loadFile(path.join(__dirname, "../renderer/index.html"));
-        // or: mainWindow.loadURL("http://localhost:3000")
     }
 
     mainWindow.loadFile(path.join(__dirname, "../renderer/index.html"));
