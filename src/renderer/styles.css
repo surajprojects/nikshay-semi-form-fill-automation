@@ -121,3 +121,9 @@ footer div {
     align-items: center;
     font-weight: 500;
 }
+
+.noInteraction {
+    user-select: none;
+    pointer-events: none;
+    cursor: default;
+}
