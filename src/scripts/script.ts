@@ -42,6 +42,9 @@ export default async function run(filePath: string, doneFile: string, log: (msg:
         // wait for site to load
         await page.waitForLoadState("networkidle");
 
+        const card = page.locator('.card');
+        const locationText = await card.locator('div:has-text("Location(TU):") span').innerText();
+
         await page.waitForSelector("#ReasonForTesting");
         await page.selectOption("#ReasonForTesting", "Diagnosis of TB");
 
@@ -61,6 +64,27 @@ export default async function run(filePath: string, doneFile: string, log: (msg:
 
         await page.waitForSelector("#FinalInterpretation");
         await page.selectOption("#FinalInterpretation", "Not Suggestive of TB");
+
+        if (locationText === "Sheopur DTC") {
+            await page.fill('input[placeholder="Select Testing Lab"]', "DH Sheopur");
+            await page.waitForSelector('.vs__dropdown-menu li:not(.vs__no-options)');
+            await page.locator('.vs__dropdown-menu li:not(.vs__no-options)').first().click();
+        }
+        else if (locationText === "TU KARAHAL") {
+            await page.fill('input[placeholder="Select Testing Lab"]', "TU KARHAL");
+            await page.waitForSelector('.vs__dropdown-menu li:not(.vs__no-options)');
+            await page.locator('.vs__dropdown-menu li:not(.vs__no-options)').first().click();
+        }
+        else if (locationText === "TU VIJAYPUR") {
+            await page.fill('input[placeholder="Select Testing Lab"]', "CHC Vijaypur");
+            await page.waitForSelector('.vs__dropdown-menu li:not(.vs__no-options)');
+            await page.locator('.vs__dropdown-menu li:not(.vs__no-options)').first().click();
+        }
+        else if (locationText === "TU BARODA") {
+            await page.fill('input[placeholder="Select Testing Lab"]', "CHC Baroda");
+            await page.waitForSelector('.vs__dropdown-menu li:not(.vs__no-options)');
+            await page.locator('.vs__dropdown-menu li:not(.vs__no-options)').first().click();
+        }
 
         console.log(`Opened ID: ${id}`);
         log(`🟢 Opened ID: ${id}`);
