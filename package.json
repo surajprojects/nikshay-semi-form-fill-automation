@@ -1,7 +1,7 @@
 {
   "name": "nikshay-semi-form-fill-automation",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Build to streamlines repetitive workflows on portals like Nikshay.",
   "main": "dist/main/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
