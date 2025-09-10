@@ -37,10 +37,7 @@ export default async function run(filePath: string, doneFile: string, log: (msg:
         const id = ids[currentIndex++];
         const page = await context.newPage();
 
-        await page.goto("https://www.nikshay.in/Dashboard/Diagnostics/" + id);
-
-        // wait for site to load
-        await page.waitForLoadState("networkidle");
+        await page.goto("https://www.nikshay.in/Dashboard/Diagnostics/" + id, { waitUntil: "domcontentloaded" });
 
         const card = page.locator('.card');
         const locationText = await card.locator('div:has-text("Location(TU):") span').innerText();
@@ -85,6 +82,9 @@ export default async function run(filePath: string, doneFile: string, log: (msg:
             await page.waitForSelector('.vs__dropdown-menu li:not(.vs__no-options)');
             await page.locator('.vs__dropdown-menu li:not(.vs__no-options)').first().click();
         }
+
+        await page.waitForSelector("#ResultDateReported");
+        await page.click("#ResultDateReported");
 
         console.log(`Opened ID: ${id}`);
         log(`🟢 Opened ID: ${id}`);
