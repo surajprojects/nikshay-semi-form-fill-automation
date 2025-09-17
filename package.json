@@ -9,7 +9,8 @@
     "package-win": "@electron/packager . Nikshay Semi Form Fill Automation --platform=win32 --arch=x64 --icon=assets/icon.ico --overwrite",
     "start": "electron .",
     "dev": "tsc && electron .",
-    "build-portable": "electron-builder"
+    "build-portable": "electron-builder",
+    "build-win": "electron-builder --win --dir"
   },
   "build": {
     "appId": "com.nikshay.semi.form.fill.automation",
